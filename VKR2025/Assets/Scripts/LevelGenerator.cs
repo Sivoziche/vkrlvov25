@@ -23,8 +23,8 @@ public class LevelGenerator : MonoBehaviour
         height = 10;
         map = new int[width, height];
         GenerateMap();
-        SpawnLevel();
-        AdjustCamera();
+        //SpawnLevel();
+        //AdjustCamera();
     }
 
     void GenerateMap()
@@ -57,7 +57,7 @@ public class LevelGenerator : MonoBehaviour
                 bool isNearStart = x < bufferZone;
                 bool isNearFinish = x > width - 1 - bufferZone;
 
-                if ((map[x, y] == 0) && !isNearFinish && !isNearStart) /* && Random.Range(0, 100) < 10*/ // 10% chance to spawn an obstacle
+                if ((map[x, y] == 0) && !isNearFinish && !isNearStart && Random.Range(0, 100) < 10) /* */ // 10% chance to spawn an obstacle
                 {
                     map[x, y] = 4;//Random.Range(3, 3 + obstacles.Length); // Random obstacle type
                 }
